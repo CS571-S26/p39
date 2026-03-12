@@ -2,6 +2,8 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage.jsx'
 import NotFoundPage from './pages/NotFoundPage.jsx'
+import { useState } from 'react'
+
 
 function App() {
   const [count, setCount] = useState(0)
