@@ -2,7 +2,7 @@ import { useState } from 'react'
 import '../App.css'
 import { Button, Card } from 'react-bootstrap'
 
-export default function HomePage() {
+function HomePage() {
   const [count, setCount] = useState(0)
 
   return (
@@ -16,3 +16,4 @@ export default function HomePage() {
     </div>
   )
 }
+export default HomePage;

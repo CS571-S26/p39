@@ -2,7 +2,7 @@ import '../App.css'
 import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-export default function NotFoundPage() {
+function NotFoundPage() {
   return (
     <div className="w-100 h-100 d-flex justify-content-center align-items-center">
       <Card className='m-4 p-2'>
@@ -15,3 +15,4 @@ export default function NotFoundPage() {
     </div>
   )
 }
+export default NotFoundPage;
