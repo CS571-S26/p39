@@ -83,6 +83,18 @@ function ArtistSubmissionPage() {
             </Form.Group>
 
             <Form.Group className="mb-3">
+                <Form.Label htmlFor="imageUrl">Artwork Image URL</Form.Label>
+                <Form.Control
+                id="imageUrl"
+                type="text"
+                name="imageUrl"
+                placeholder="Paste image URL"
+                value={formData.imageUrl || ''}
+                onChange={handleChange}
+            />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
               <Form.Label htmlFor="email">Email</Form.Label>
               <Form.Control
                 id="email"

@@ -1,3 +1,46 @@
+/* Updated styles for ArtWork to make it more artsy */
+.artwork {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 10px; /* Add spacing between artworks */
+}
+
+.artwork:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.artwork img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.artwork-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.artwork-description {
+    font-size: 1rem;
+    color: #666;
+    padding: 0 10px;
+    text-align: justify;
+}
+
+.artwork-author {
+    font-size: 0.9rem;
+    color: #999;
+    text-align: right;
+    padding: 0 10px 10px;
+}
+
 .artwork-card {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

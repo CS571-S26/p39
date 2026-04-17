@@ -4,12 +4,20 @@ import '../App.css'
 function BioCard({ artist }) {
   return (
 
-      <Card className="p-3" style={{ width: '300px' }}>
+      <Card>
       <Card.Body>
         <Card.Title>{artist.artistName}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
           {artist.artworkTitle}
         </Card.Subtitle>
+
+        {artist.imageUrl && (
+          <Card.Img
+            variant="top"
+            src={artist.imageUrl}
+            alt={`${artist.artworkTitle} by ${artist.artistName}`}
+          />
+        )}
 
         <Card.Text>
           {artist.description}
