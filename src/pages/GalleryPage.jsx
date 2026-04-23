@@ -4,6 +4,7 @@ import GalleryFilter from '../components/SearchBar';
 import { Container, Row, Col } from 'react-bootstrap';
 import SearchBar from '../components/SearchBar';
 
+
 function GalleryPage() {
   const [artworks, setArtworks] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -216,7 +217,7 @@ const mockArtworks = [
   });
 
   return (
-    <Container>
+    <Container className='page-container p-4'>
       <h1>Discover Art Your Way</h1>
       <p>Explore and create your own art viewing experience</p>
       <SearchBar searchQuery={searchQuery} handleSearchChange={handleSearchChange}  />

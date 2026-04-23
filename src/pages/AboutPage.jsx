@@ -3,7 +3,7 @@ import '../App.css'
 
 function AboutPage() {
   return (
-    <div>
+    <div className='page-container p-4'>
       <Card style={{ maxWidth: '800px', margin: '0 auto'}}>
         <Card.Body>
           <h1>About Digital Art Gallery</h1>

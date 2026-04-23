@@ -55,14 +55,14 @@ function ArtWork({ title, image, description, author, id }) {
             style={{cursor: 'zoom-in', height: '200px', objectFit: 'cover' }}
           />
           <Card.Body>
-              <Card.Title>{title}</Card.Title>
-              <Button onClick={more}>{showMore ? "Hide": "See More"}</Button>
+              <Card.Title className='title'> {title} </Card.Title>
+            <Button  className="btn-primary"  variant='secondary' onClick={more}>{showMore ? "Hide": "See More"}</Button>
               {showMore && <Card.Text>{description}</Card.Text>}
               {showMore && <Card.Text><em>Artist: {author}</em></Card.Text>}
               <p></p>
             {isAlreadyAdded(id) ? (
-            <Button variant="danger" onClick={() => handleRemoveFromGallery(id)}>Remove from Gallery</Button>) : (
-            <Button variant="primary" onClick={() => handleAddToGallery({id, title, image, description, author})}>
+            <Button className="btn-primary" variant='danger' onClick={() => handleRemoveFromGallery(id)}>Remove from Gallery</Button>) : (
+            <Button className="btn-primary" variant='secondary' onClick={() => handleAddToGallery({id, title, image, description, author})}>
             Add to Gallery</Button>)}   
           </Card.Body>
       </Card>

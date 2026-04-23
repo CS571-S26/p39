@@ -7,7 +7,7 @@ function LayoutOptions(props) {
 
         <Card className="p-3 mb-4">
         <Card.Body>
-          <Card.Title>Gallery Layout Options</Card.Title>
+          <h3>Gallery Layout Options</h3>
 
           <Form.Group
             className="mb-3"

@@ -15,6 +15,11 @@ function GalleryCard(props){
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
+          style={{
+            ...provided.draggableProps.style, 
+            breakInside: 'avoid',
+            marginBottom: '16px'
+          }}
         >
           <div className="image-wrapper">
             <Card.Img

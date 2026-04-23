@@ -26,6 +26,11 @@ function MyGalleryPage() {
       }
     }, [isDarkMode]);
 
+    const loadGallery = () => {
+      const saved = JSON.parse(localStorage.getItem('myGallery')) || []
+      setArtworks(saved)
+    }
+
     useEffect(() => {
         const handleFocus = () => loadGallery()
         window.addEventListener('focus', handleFocus)
@@ -55,7 +60,7 @@ function MyGalleryPage() {
       <p>Create and customize your own art gallery experience</p>
 
     <Card style={{margin: "10px"}}>
-      <h5>Visual Options</h5>
+      <h3>Toggle Options</h3>
       <div style={{display: "flex"}}>
         <p style={{textAlign: "left", fontSize: "16px", paddingRight:"5px"}}>Edit Mode:</p>
         <ToggleSwitch  checked={isEditing} onChange={() => setIsEditing(!isEditing)} />
@@ -85,18 +90,50 @@ function MyGalleryPage() {
                 <div
                   {...provided.droppableProps}
                   ref={provided.innerRef}
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns:
-                        layout === 'grid'
-                        ? `repeat(${columns}, minmax(200px, 1fr))`
-                        : '1fr',
-                    gap: '20px'
-                    }}
                 >
-                  {artworks.map((art, index) => (
-                    <GalleryCard handleRemove={handleRemove} art={art} index={index} key={index}></GalleryCard>
-                  ))}
+                  {isEditing ? (
+                  <DragDropContext onDragEnd={handleDragEnd}>
+                    <Droppable droppableId="gallery">
+                      {(provided) => (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.droppableProps}
+                          style={{
+                            display: 'grid',
+                            gridTemplateColumns: `repeat(${columns}, 1fr)`,
+                            gap: '16px'
+                          }}
+                        >
+                          {artworks.map((art, index) => (
+                            <GalleryCard
+                              handleRemove={handleRemove}
+                              art={art}
+                              index={index}
+                              key={art.id}
+                            />
+                          ))}
+                          {provided.placeholder}
+                        </div>
+                      )}
+                    </Droppable>
+                  </DragDropContext>
+                ) : (
+                  <div
+                    style={{
+                      columnCount: columns,
+                      columnGap: '16px'
+                    }}
+                    >
+                      {artworks.map((art, index) => (
+                        <GalleryCard
+                          handleRemove={handleRemove}
+                          art={art}
+                          index={index}
+                          key={art.id}
+                        />
+                      ))}
+                    </div>
+                  )}
                   {provided.placeholder}
                 </div>
               )}
